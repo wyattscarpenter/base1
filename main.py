@@ -25,7 +25,13 @@ def find_size_of_buffer_from_n(n: int) -> int:
     i+=1
 
 def encode_l(input_buffer: bytes) -> int:
-  pass
+  size: int = len(input_buffer)
+  dprint("size", size, type(size))
+  offset: int = min_base1n_for_buffersize(size)
+  dprint("offset", offset, type(offset))
+  remainder: int = int.from_bytes(input_buffer, byteorder='big', signed=False)
+  total: int = offset + remainder
+  return total
 
 def encode(input_buffer: bytes) -> str:
   return "A" * encode_l(input_buffer)

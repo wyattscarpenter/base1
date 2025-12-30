@@ -4,7 +4,12 @@ import main as m
 
 # Easily check for type errors and other instant failures:
 assert m.decode("") == b''
-#assert m.encode(b'') == ""
+assert m.encode(b'') == ""
+
+def dprint(*args):
+  DEBUG = True
+  if DEBUG:
+    print(*args)
 
 test_cases: list[tuple[str, int, bytes]] = [
   ("", 0, b''),
@@ -22,8 +27,11 @@ for test_case in test_cases:
   s = test_case[0]
   n = test_case[1]
   b = test_case[2]
-  print(t)
-  print(m.decode(s), "|", m.decode_l(n), "|", b)
+  dprint(t)
+  dprint("DE:", m.decode(s), "|", m.decode_l(n), "|", b)
   assert m.decode(s) == m.decode_l(n) == b
-  print("-"*20)
-print("All tests ok!")
+  dprint("EN:", m.encode(b), "|", m.encode_l(b), "|", b)
+  assert m.encode_l(b) == n and m.encode(b) == s
+  dprint("-"*20)
+
+print(f"All {len(test_cases)} tests passed ok!")
