@@ -8,8 +8,9 @@ test_cases: list[tuple[str, int, bytes]] = [
   ("", 0, b''),
   ("A", 1, b'\x00'),
   ("AA", 2, b'\x01'),
+  ("AAA", 3, b'\x02'),
+
 ]
-# TODO: this is off by one
 
 for test_case in test_cases:
   t = test_case
