@@ -22,12 +22,19 @@ test_cases: list[tuple[str, int, bytes]] = [
   ("A", 1, b'\x00'),
   ("AA", 2, b'\x01'),
   ("AAA", 3, b'\x02'),
+  ("AAAA", 4, b'\x03'),
+  ("AAAAA", 5, b'\x04'),
+  ("AAAAAA", 6, b'\x05'),
   ("A"*256, 256, b'\xFF'),
   ("A"*257, 257, b'\x00\x00'),
   ("A"*258, 258, b'\x00\x01'),
   ("A"*1217, 1217, bytes([3,192])),
-  # This test case is suggested by https://github.com/girst/base1-mirror-of-git.gir.st ; unlike that repo, I could do "Hello World", since python has bigints by default, and also my "Hallo" is instant so IDK what was wrong with his algorithm. (tbh that does make his program funnier)
-  ("A"*18794, 18794, b"Hi")
+  # This test case is suggested by https://github.com/girst/base1-mirror-of-git.gir.st ; unlike that repo, I could do "Hello World", since python has bigints by default, and also my "Hallo" is instant so IDK what was wrong with his algorithm (or maybe it's just the time cost of streaming data?). (tbh that does make his program funnier)
+  ("A"*18794, 18794, b"Hi"),
+  # These MemoryError due to the string creation step and I don't feel like taking the time to fix that (if it's even possible).
+  # # Also mentioned by girst, but he doesn't mention a value for those, so these values are my own.
+  # ("A"*315183951216, 315183951216, b"Hallo"),
+  # ("A"*88735284794064279159663973, 88735284794064279159663973, b"Hello World"),
 ]
 
 for test_case in test_cases:

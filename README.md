@@ -2,7 +2,7 @@
 
 This is a python implementation of Base1 encoding, as detailed in https://github.com/qntm/base1. It follows that API. I implemented this largely on 2025-12-29, for fun.
 
-It is a python library, but you can also use it as a simple command-line utility as a bonus. Given a string input, the first argument to the command, if it's composed entirely of As, it will decode it as base1 and print that. Otherwise, it will give you the base1n of the base1-encoded data.
+It is a python library, but you can also use it as a simple command-line utility as a bonus. Given a string input, the first argument to the command, it base1 encode that data in the string and give you the base1n of the base1-encoded data. (Internally, the program takes whatever Python gives it as the string that "is" argv[1] and then calls .encode() directly on that to get a bytes. If you're having problems with complicated utf-8/other-encoding characters, that might be the culprit.)
 
 qntm's base1 works with javascript concepts, which have analogues in python. So, we use `bytes` instead of UInt8Array or whatever, and `int` instead of BigInt. The names of functions uses snakecase instead of camelcase.
 

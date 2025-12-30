@@ -52,10 +52,10 @@ def decode(base1_string: str) -> bytes:
 
 def main():
   if len(argv) != 2:
-    print(f"{argv[0]} must take exactly 1 argument, which is either a base1 string or data to be base1 encoded.", file=stderr)
+    print(f"{argv[0]} must take exactly 1 argument, a string of character data to be base1 encoded.", file=stderr)
     exit(2)
   else:
-    if all(
+    print(encode_l(argv[1].encode()))
 
 if __name__ == "__main__":
   main()
