@@ -1,3 +1,5 @@
+from sys import argv, stderr
+
 def dprint(*args):
   DEBUG = False #True
   if DEBUG:
@@ -47,3 +49,13 @@ def decode_l(base1_string_length: int) -> bytes:
 
 def decode(base1_string: str) -> bytes:
   return decode_l(len(base1_string))
+
+def main():
+  if len(argv) != 2:
+    print(f"{argv[0]} must take exactly 1 argument, which is either a base1 string or data to be base1 encoded.", file=stderr)
+    exit(2)
+  else:
+    if all(
+
+if __name__ == "__main__":
+  main()
