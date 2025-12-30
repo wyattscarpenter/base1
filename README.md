@@ -6,6 +6,8 @@ It is a python library, not a command-line program.
 
 qntm's base1 works with javascript concepts, which have analogues in python. So, we use `bytes` instead of UInt8Array or whatever, and `int` instead of BigInt. The names of functions uses snakecase instead of camelcase.
 
-The algorithm to encode and decode base1, especially in closed form, is not entirely trivial if you just read qntm's readme. You can derive, with some analytical work. It's all there, but you have to think about it a little. (What does it mean, mathematically to, eg, "sort all possible buffers by length and then lexicographically"? that seems like it would take a lot of time for the CPU to execute).
+The algorithm to encode and decode base1, especially in closed form, is not entirely trivial if you just read qntm's readme. You can derive, with some analytical work. It's all there, but you have to think about it a little. (What does it mean, mathematically to, eg, "sort all possible buffers by length and then lexicographically"? that seems like it would take a lot of time for the CPU to execute). I purposefully did not read any of his code, so that I could use my own license instead of his. This software is public domain btw. Also, my test examples are just from his readme, which I'm treating as a standard (and also those cases as non-copyrightable due to the concept-expression merger for math (don't worry about that)).
 
-I lost interest in this project before testing it very well.
+I lost interest in this project before testing it very well. I mean, I guess I do test it pretty well, because those test cases are how I figured out what the heck I was doing, but I don't know about code coverage, test framework, etc etc.
+
+Since the important part of Base1 encoding is the length of the base1 string, various (but not all) parts of this program refer to that concept as a "base1n" (it's just an int holding the value of the length instead of the string that is that long). That's... you know, kind of the joke of this whole project, when you get right down to it.
