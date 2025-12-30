@@ -37,7 +37,7 @@ def decode_l(base1_string_length: int) -> bytes:
   dprint("offset", offset, type(offset))
   remainder: int = base1_string_length - offset
   dprint("remainder", remainder, type(remainder))
-  return remainder.to_bytes(length=size, byteorder='little', signed=False)
+  return remainder.to_bytes(length=size, byteorder='big', signed=False)
 
 def decode(base1_string: str) -> bytes:
   return decode_l(len(base1_string))
